@@ -110,7 +110,8 @@ Memutuskan link utama secara sengaja untuk menguji peralihan jalur otomatis (fai
 ### 3. Pengujian Layanan Aplikasi (DNS & Web Server)
 Mengakses web server internal menggunakan nama domain serta pengujian DNS lookup (`nslookup`).
 
-![Pengujian Layanan Aplikasi](assets/image_app_test.png)
+![Pengujian Layanan DNS](assets/DNS.png)
+![Pengujian Layanan Web Server](assets/web.png)
 *Gambar 5.3: Akses Web Server dan verifikasi DNS.*
 
 ---
