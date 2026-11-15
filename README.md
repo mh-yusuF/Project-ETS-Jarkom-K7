@@ -110,8 +110,7 @@ Memutuskan link utama secara sengaja untuk menguji peralihan jalur otomatis (fai
 ### 3. Pengujian Layanan Aplikasi (DNS & Web Server)
 Mengakses web server internal menggunakan nama domain serta pengujian DNS lookup (`nslookup`).
 
-![Pengujian Layanan DNS](assets/DNS.png)
-![Pengujian Layanan Web Server](assets/web.png)
+![Pengujian Layanan Aplikasi](assets/image_app_test.png)
 *Gambar 5.3: Akses Web Server dan verifikasi DNS.*
 
 ---
@@ -119,3 +118,4 @@ Mengakses web server internal menggunakan nama domain serta pengujian DNS lookup
 ## 6. Penutup & Kesimpulan
 
 Proyek perancangan jaringan ini berhasil diimplementasikan dengan baik menggunakan metode VLSM dan CIDR. Berdasarkan perbandingan efisiensi, metode **VLSM** terbukti jauh lebih optimal dalam menghemat alokasi IP dibandingkan CIDR murni. Seluruh layanan jaringan, routing statis, OSPF, DHCP, NAT, serta Tunneling GRE telah diuji dan berfungsi secara optimal sesuai kebutuhan skenario perkotaan.
+
