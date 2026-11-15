@@ -247,6 +247,11 @@ Seluruh server internal mengarahkan DNS Server ke `10.56.160.2`.
 | **Mail Server** | Balai Kota | `10.57.136.3/27` | `10.57.136.1` | **SMTP/POP3** (Komunikasi email internal) |
 | **Internet Server** | Luar R-ISP | `8.8.8.8/24` | `8.8.8.1` | **HTTP** (Simulasi layanan jaringan luar/internet) |
 
+![alt text](assets/image.png)
+
+![alt text](assets/image3.png)
+
+
 ### 5.2 Konfigurasi DHCP Server dan DHCP Relay
 
 Layanan DHCP diaktifkan pada **Server & Storage DC** (`10.56.160.2`) dengan konfigurasi 14 pool (Start IP dimulai dari oktet `.10` pada setiap subnet untuk menyisakan ruang IP statis perangkat jaringan, serta seluruh pool menggunakan DNS `10.56.160.2`):
@@ -275,6 +280,10 @@ interface <interface-LAN-klien>
  ip helper-address 10.56.160.2
 ```
 
+![alt text](assets/image.png)
+
+![alt text](assets/image4.png)
+
 ### 5.3 Layanan DNS, FTP, dan Email (`k7.smartcity.lab`)
 
 1. **DNS Server (Server & Storage DC):** Mengaktifkan layanan DNS untuk domain internal `k7.smartcity.lab` dengan *A Record*:
@@ -288,9 +297,17 @@ interface <interface-LAN-klien>
    * `pegawai@k7.smartcity.lab` (Password: `pegawai123`)
    * `pelabuhan@k7.smartcity.lab` (Password: `pelabuhan123`)
 
+![alt text](assets/image5.png)
+
+![alt text](assets/image1.png)
+
+![alt text](assets/image2.png)
+
 ### 5.4 Konfigurasi Access Point (Wireless)
 
 Access Point dihubungkan ke switch pada jaringan WiFi Publik tiap wilayah dengan SSID `SMARTCITY-UTARA`, `SMARTCITY-BARAT`, `SMARTCITY-TIMUR`, dan `SMARTCITY-SELATAN` (beserta konfigurasi keamanan). Perangkat Laptop-PT dilengkapi modul wireless, dihubungkan melalui **Desktop → PC Wireless**, dan diatur menggunakan **DHCP** sehingga otomatis memperoleh IP sesuai pool wilayahnya tanpa memengaruhi tabel routing.
+
+![alt text](assets/image6.png)
 
 ---
 
@@ -315,6 +332,8 @@ ip nat inside source list 1 interface ethernet1/0 overload
 ```
 *Pengujian:* Perintah `ping 8.8.8.8` dari klien internal berhasil, serta translasi terverifikasi melalui `show ip nat translations` dan `show ip nat statistics`.
 
+![alt text](assets/image7.png)
+
 ### 6.2 Implementasi GRE Tunnel (R-PUSAT $\leftrightarrow$ R-PELABUHAN)
 
 GRE Tunnel (`Tunnel0`, subnet `192.168.7.0/30`, MTU `1476`) dibangun untuk menyediakan jalur komunikasi virtual khusus antara Balai Kota dan Pelabuhan melewati jaringan fisik R-UTARA.
@@ -337,6 +356,8 @@ interface Tunnel0
  no shutdown
 ```
 *Catatan Keamanan:* GRE hanya melakukan enkapsulasi paket tanpa enkripsi data; perlindungan kerahasiaan data memerlukan kombinasi dengan IPsec.
+
+
 
 ---
 
